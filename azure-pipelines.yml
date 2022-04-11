@@ -83,9 +83,9 @@ stages:
       displayName: 'Install Apache JMeter'
     - script: apache-jmeter-$(jmeterVersion)/bin/./jmeter -n -t LoadTest.jmx -o Results.xml -Jhostname=$(STAGING_HOSTNAME)
       displayName: 'Run Load tests'
-    - script: echo $(wwwrootDir)
+    - script: echo $(pwd)
     - script: dir
-      workingDirectory: $(wwwrootDir)
+      workingDirectory: $(pwd)
     - publish: '$(pwd)/Results.xml'
       artifact: drop
     
